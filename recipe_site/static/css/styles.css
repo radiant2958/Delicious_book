@@ -1,0 +1,273 @@
+/* styles.css */
+
+/* Общие стили для страницы */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Playwrite CU", cursive;
+    text-transform: capitalize;
+    background-image: url('../images/summer_table.webp');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* Стили для заголовка */
+header {
+    width: 100%;
+    border-bottom: 2px solid orange;
+    text-align: center;
+    padding: 20px 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Стили для навигации */
+nav {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid orange;
+    padding: 5px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background: orange;
+    color: black;
+}
+
+/* Стили для основного контента */
+main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main::before {
+    content: "";
+    background-image: url('../imag/cook_book.webp');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Стили для подвала */
+footer {
+    width: 100%;
+    border-top: 2px solid orange;
+    text-align: right;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Дополнительные стили для формы */
+form {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Стили для текста и формы */
+.jumbotron {
+    background: none;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.jumbotron h2,
+.jumbotron p,
+.jumbotron h3 {
+    margin: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.img-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.recipe-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.recipe-card img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.random_recipes h2 {
+    color: blue;
+    font-size: 24px;
+}
+
+.recipe-img img {
+    width: 250px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.title h2 {
+    color: #08150b;
+    font-size: 48px;
+    text-shadow: 2px 1px 2px rgb(243, 241, 241);
+    margin-bottom: 50px;
+}
+
+/* Стили для описания рецепта */
+.description p {
+    color: #181f21;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.description h3 {
+    color: orange;
+    text-shadow: 2px 1px 2px rgb(14, 14, 14);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: orange;
+    border-color: #262525;
+    color: rgb(36, 34, 34);
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: orange;
+    border-color: #f1eded;
+    color: rgb(243, 237, 237);
+}
+
+.menu-pages {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 100px;
+}
+
+.menu-pages a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu-pages a:hover {
+    color: orange;
+}
+
+.categories-menu {
+    margin-top: -100px;
+}
+
+.categories-menu h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(32, 31, 30);
+    font-weight: bold;
+    top: 30px;
+}
+
+.center-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.center-content li {
+    margin: 10px 0;
+}
+
+.categories-list a {
+    text-shadow: 2px 1px 2px rgb(14, 14, 14);
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.center-content a:hover {
+    color: rgb(248, 242, 242);
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    .recipes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 480px) {
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .title h2 {
+        font-size: 32px;
+    }
+
+    .categories-menu h2 {
+        font-size: 36px;
+    }
+
+    .description p,
+    .description h3 {
+        font-size: 16px;
+    }
+}

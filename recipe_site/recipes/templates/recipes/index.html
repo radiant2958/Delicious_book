@@ -1,0 +1,33 @@
+{% extends 'recipes/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="menu">
+<nav>
+    <ul>
+        <li><a href="{% url 'index' %}">Главная</a></li>
+        <li><a href="{% url 'add_recipe' %}">Добавить рецепт</a></li>
+        <li><a href="{% url 'recipes_by_category' %}">Категории</a></li>
+    </ul>
+</nav>
+</div>
+<div class="random_recipes">
+    <h2>РЕЦЕПТЫ</h2>
+</div>
+
+<div class="recipes-grid">
+    {% for recipe in recipes %}
+    <div class="recipe-card">
+        <h3>{{ recipe.title }}</h3>
+        {% if recipe.image %}
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-thumbnail">
+        {% endif %}
+        <p>{{ recipe.description|truncatewords:20 }}</p>
+        <a href="{% url 'recipe_detail' recipe.id %}">Подробней</a>
+       
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

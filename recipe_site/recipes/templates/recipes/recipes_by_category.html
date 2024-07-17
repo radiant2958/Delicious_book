@@ -1,0 +1,17 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}Категории рецептов{% endblock %}
+
+{% block content %}
+<div class="menu-pages">
+    <a href="{% url 'index' %}">Главная</a>
+</div>
+<div class="categories-menu"><h2>Категории рецептов</h2></div>
+<dir class="categories-list">
+    <ul>
+        {% for category in categories %}
+        <li><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</dir>
+{% endblock %}

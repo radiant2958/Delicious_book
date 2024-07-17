@@ -1,0 +1,36 @@
+{% extends 'recipes/base.html' %}
+{% load static %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h2>Добро пожаловать в Вкусную книгу рецептов!</h2>
+    <p>Ты сможешь узнать многое у нас и ждем от тебя новых рецептов.</p>
+
+    <h3>Это сайт Вкусной книги</h3>
+    <p>На нашем сайте ты найдешь множество интересных и вкусных рецептов, которые можно легко приготовить дома. Делись своими рецептами с другими и открывай для себя новые кулинарные идеи!</p>
+</div>
+<form method="post" action="{% url 'welcome' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" class="form-control" required id="email">
+    </div>
+    <div class="form-group">
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" class="form-control" required id="password">
+    </div>
+    <button type="submit" name="action" value="login" class="btn btn-primary">Войти</button>
+    <button type="submit" name="action" value="register" class="btn btn-secondary">Регистрация</button>
+</form>
+{% if messages %}
+<div class="mt-3">
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

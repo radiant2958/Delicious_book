@@ -1,0 +1,27 @@
+{% extends 'recipes/base.html' %}
+{% load static %}
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block content %}
+<div class="menu-pages">
+   <a href="{% url 'index' %}">Главная</a>
+</div>
+<div class="title"><h2>{{ recipe.title }}</h2></div>
+<div class="recipe-img">
+{% if recipe.image %}
+<img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-thumbnail">
+{% endif %}
+</div>
+<div class="description">
+<p>{{ recipe.description }}</p>
+<h3>Ингредиенты:</h3>
+<p>{{ recipe.ingredients }}</p>
+<h3>Шаги приготовления:</h3>
+<p>{{ recipe.steps }}</p>
+<h3>Время приготовления: </h3>
+<p>{{ recipe.cooking_time }} минуты</p>
+<p>Автор рецепта: {{ recipe.author.username }}</p>
+</div>
+    <a href="{% url 'edit_recipe' recipe.id %}" class="btn btn-primary">Редактировать</a>
+
+{% endblock %}

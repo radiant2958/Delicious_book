@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Рецепты{% endblock %}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Вкусная книга</h1>
+    
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Radiant</p>
+    </footer>
+</body>
+</html>
