@@ -18,7 +18,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
-
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = [ 'radiant.pythonanywhere.com','0.0.0.0', 'localhost', '127.0.0.1']
 
@@ -69,7 +69,7 @@ WSGI_APPLICATION = 'recipe_site.wsgi.application'
 
 AUTHENTICATION_BACKENDS = (
     'recipes.backends.EmailAuthBackend',
-    'django.contrib.auth.backends.ModelBackend',  
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # Database
@@ -129,13 +129,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+CSRF_TRUSTED_ORIGINS = [
+    'https://radiant.pythonanywhere.com',
+
+]
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGGING = {
@@ -148,7 +154,7 @@ LOGGING = {
         },
     },
     'loggers': {
-        '': {  
+        '': {
             'handlers': ['console'],
             'level': 'INFO',
             'propagate': True,
